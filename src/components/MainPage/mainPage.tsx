@@ -1,10 +1,11 @@
 import React from 'react'
+import './styles.css'
 
 const MainPage = () => {
   return (
-    <div className='MainPage'>
+    <div>
       {/* <Background /> */}
-      <div className='body'>
+      <div className='mainMenuBody'>
         <h1>Medicy</h1>
         {/* {this.props.db ? (
           <div className='buttonRow'>
