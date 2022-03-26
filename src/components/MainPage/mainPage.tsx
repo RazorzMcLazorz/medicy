@@ -1,10 +1,11 @@
 import React from 'react'
+import MainPageBackground from '../../common/mainPageBackground/mainPageBackground'
 import './styles.css'
 
 const MainPage = () => {
   return (
     <div>
-      {/* <Background /> */}
+      <MainPageBackground />
       <div className='mainMenuBody'>
         <h1>Medicy</h1>
         {/* {this.props.db ? (
