@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react'
 import useAppData from '../../Hooks/AppDataHook/useAppData'
+import useUserInfo from '../../Hooks/UserInfoHook/useUserInfo'
 import MainPageBackground from '../../common/mainPageBackground/mainPageBackground'
 import './styles.css'
 
 const MainPage = () => {
   const [{ isDataBaseLive }, { checkDataBaseServiceIsLive }] = useAppData()
+  const [{ userName }] = useUserInfo()
 
   useEffect(() => {
     checkDataBaseServiceIsLive()
@@ -17,18 +19,14 @@ const MainPage = () => {
         <h1>Medicy</h1>
         {isDataBaseLive ? (
           <div className='buttonRow'>
-            {/* {this.props.user ? (
+            {userName ? (
               <div>
-                <a className='button' href='/create'>
-                  New
-                </a>
-                <a className='button'>Load</a>
+                <button className='button'>New</button>
+                <button className='button'>Load</button>
               </div>
             ) : (
-              <a className='button' href='/login'>
-                Login
-              </a>
-            )} */}
+              <button className='button'>Login</button>
+            )}
           </div>
         ) : (
           <div className='buttonRow'>Loading for Database to boot up please wait a minute! =)</div>
