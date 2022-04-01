@@ -8,7 +8,11 @@ export interface AppDataContextHelpers {
   setIsDataBaseLive: ContextHelperFunction
 }
 
-export type AppDataHook = [AppDataContextState, AppDataContextHelpers]
+export interface AppDataHelpers extends AppDataContextHelpers {
+  checkDataBaseServiceIsLive: () => void
+}
+
+export type AppDataHook = [AppDataContextState, AppDataHelpers]
 
 export interface AppDataActionsType {
   SET_IS_DATA_BASE_LIVE: string
@@ -19,5 +23,5 @@ export interface AppDataActionsKey {
 }
 
 export interface AppDataContextProps {
-  children: Node
+  children: any
 }
