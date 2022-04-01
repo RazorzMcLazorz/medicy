@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import useAppData from '../../Hooks/AppDataHook/useAppData'
 import useUserInfo from '../../Hooks/UserInfoHook/useUserInfo'
 import MainPageBackground from '../../common/mainPageBackground/mainPageBackground'
+import URL from '../../common/helperFunctions/URL/URL'
 import './styles.css'
 
 const MainPage = () => {
@@ -25,7 +26,9 @@ const MainPage = () => {
                 <button className='button'>Load</button>
               </div>
             ) : (
-              <button className='button'>Login</button>
+              <button onClick={URL.login} className='button'>
+                Login
+              </button>
             )}
           </div>
         ) : (
