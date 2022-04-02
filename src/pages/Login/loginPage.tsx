@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import useUserInfo from '../../hooksFunc/UserInfoHook/useUserInfo'
+import useUserInfo from '../../hooks/UserInfoHook/useUserInfo'
 import MainPageBackground from '../../common/mainPageBackground/mainPageBackground'
 import URL from '../../common/helperFunctions/URL/URL'
 import './styles.css'

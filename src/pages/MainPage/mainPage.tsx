@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
-import useAppData from '../../hooksFunc/AppDataHook/useAppData'
-import useUserInfo from '../../hooksFunc/UserInfoHook/useUserInfo'
+import useAppData from '../../hooks/AppDataHook/useAppData'
+import useUserInfo from '../../hooks/UserInfoHook/useUserInfo'
+import Button from '../../components/button/Button'
 import MainPageBackground from '../../common/mainPageBackground/mainPageBackground'
 import URL from '../../common/helperFunctions/URL/URL'
 import './styles.css'
@@ -22,13 +23,11 @@ const MainPage = () => {
           <div className='buttonRow'>
             {userName ? (
               <div>
-                <button className='button'>New</button>
-                <button className='button'>Load</button>
+                <Button>New</Button>
+                <Button>Load</Button>
               </div>
             ) : (
-              <button onClick={URL.login} className='button'>
-                Login
-              </button>
+              <Button onClick={URL.login}>Login</Button>
             )}
           </div>
         ) : (
