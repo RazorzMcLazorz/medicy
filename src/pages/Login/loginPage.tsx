@@ -1,10 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import useUserInfo from '../../hooks/UserInfoHook/useUserInfo'
 import MainPageBackground from '../../common/mainPageBackground/mainPageBackground'
+import TextField from '../../components/textField/TextField'
 import URL from '../../common/helperFunctions/URL/URL'
 import './styles.css'
 
 const LoginPage = () => {
+  const [messageState, setMessageState] = useState('')
+  const [name, setName] = useState('')
+  const [password, setPassword] = useState('')
+
   const [{ userName }] = useUserInfo()
 
   return (
@@ -13,11 +18,28 @@ const LoginPage = () => {
       <div>
         <div className='loginComponent'>
           <div>Enter your login credentials even if you havent created an account before.</div>
-          <label htmlFor='username'>Username:</label>
-          <input type='type' id='username' name='username' className='cgsText' />
+          {messageState ? (
+            <>
+              <br />
+              <div>{messageState}</div>
+            </>
+          ) : null}
           <br />
-          <label htmlFor='username'>Password:</label>
-          <input type='password' id='password' name='password' className='cgsText' />
+          <TextField
+            id='username'
+            name='username'
+            label='Username:'
+            onChange={(val) => setName(val)}
+            value={name}
+          />
+          <br />
+          <TextField
+            id='password'
+            name='password'
+            label='Password:'
+            onChange={(val) => setPassword(val)}
+            value={password}
+          />
           <br />
         </div>
       </div>
