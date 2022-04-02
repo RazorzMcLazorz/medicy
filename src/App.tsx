@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { paths } from './common/helperFunctions/URL/constants'
 import './App.css'
 
-import MainPage from './components/MainPage/mainPage'
-import LoginPage from './components/Login/loginPage'
+import MainPage from './pages/MainPage/mainPage'
+import LoginPage from './pages/Login/loginPage'
 
 const App = () => {
   return (

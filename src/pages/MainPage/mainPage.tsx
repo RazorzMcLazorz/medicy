@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import useAppData from '../../Hooks/AppDataHook/useAppData'
-import useUserInfo from '../../Hooks/UserInfoHook/useUserInfo'
+import useAppData from '../../hooksFunc/AppDataHook/useAppData'
+import useUserInfo from '../../hooksFunc/UserInfoHook/useUserInfo'
 import MainPageBackground from '../../common/mainPageBackground/mainPageBackground'
 import URL from '../../common/helperFunctions/URL/URL'
 import './styles.css'

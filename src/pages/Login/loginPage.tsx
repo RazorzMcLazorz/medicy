@@ -1,17 +1,11 @@
 import React, { useEffect } from 'react'
-import useAppData from '../../Hooks/AppDataHook/useAppData'
-import useUserInfo from '../../Hooks/UserInfoHook/useUserInfo'
+import useUserInfo from '../../hooksFunc/UserInfoHook/useUserInfo'
 import MainPageBackground from '../../common/mainPageBackground/mainPageBackground'
 import URL from '../../common/helperFunctions/URL/URL'
 import './styles.css'
 
 const LoginPage = () => {
-  const [{ isDataBaseLive }, { checkDataBaseServiceIsLive }] = useAppData()
   const [{ userName }] = useUserInfo()
-
-  useEffect(() => {
-    checkDataBaseServiceIsLive()
-  })
 
   return (
     <div className='login'>
@@ -19,6 +13,12 @@ const LoginPage = () => {
       <div>
         <div className='loginComponent'>
           <div>Enter your login credentials even if you havent created an account before.</div>
+          <label htmlFor='username'>Username:</label>
+          <input type='type' id='username' name='username' className='cgsText' />
+          <br />
+          <label htmlFor='username'>Password:</label>
+          <input type='password' id='password' name='password' className='cgsText' />
+          <br />
         </div>
       </div>
     </div>
