@@ -7,12 +7,16 @@ import URL from '../../common/helperFunctions/URL/URL'
 import './styles.css'
 
 const MainPage = () => {
-  const [{ isDataBaseLive }, { checkDataBaseServiceIsLive }] = useAppData()
+  const [{ isDataBaseLive, onlineStatus }, { checkDataBaseServiceIsLive, checkOnlineStatus }] =
+    useAppData()
   const [{ userName }] = useUserInfo()
 
   useEffect(() => {
+    checkOnlineStatus()
     checkDataBaseServiceIsLive()
-  })
+  }, [])
+
+  console.log(onlineStatus)
 
   return (
     <div>
@@ -27,11 +31,31 @@ const MainPage = () => {
                 <Button>Load</Button>
               </div>
             ) : (
-              <Button onClick={URL.login}>Login</Button>
+              <div>
+                <Button onClick={URL.login}>Login</Button>
+                {onlineStatus ?? (
+                  <Button
+                    onClick={() => {
+                      console.log('offline')
+                    }}>
+                    Play Offline Guest
+                  </Button>
+                )}
+              </div>
             )}
           </div>
         ) : (
-          <div className='buttonRow'>Loading for Database to boot up please wait a minute! =)</div>
+          <div className='buttonRow'>
+            <div>Loading for Database to boot up please wait a minute! =)</div>
+            {onlineStatus ?? (
+              <Button
+                onClick={() => {
+                  console.log('offline')
+                }}>
+                Play Offline
+              </Button>
+            )}
+          </div>
         )}
       </div>
     </div>

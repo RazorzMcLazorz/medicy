@@ -12,6 +12,7 @@ export interface AppDataContextHelpers {
 
 export interface AppDataHelpers extends AppDataContextHelpers {
   checkDataBaseServiceIsLive: () => void
+  checkOnlineStatus: () => void
 }
 
 export type AppDataHook = [AppDataContextState, AppDataHelpers]
