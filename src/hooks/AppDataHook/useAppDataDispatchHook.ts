@@ -9,8 +9,12 @@ export default function useAppDataDispatchHook(): AppDataContextHelpers {
   const setIsDataBaseLive: ContextHelperFunction = (value) =>
     appDataDispatch(actions.setIsDataBaseLive(value))
 
+  const setOnlineStatus: ContextHelperFunction = (value) =>
+    appDataDispatch(actions.setIsDataBaseLive(value))
+
   const helpers: AppDataContextHelpers = {
     setIsDataBaseLive,
+    setOnlineStatus,
   }
 
   return helpers

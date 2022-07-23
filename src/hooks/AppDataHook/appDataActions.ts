@@ -7,8 +7,15 @@ const setIsDataBaseLive: ContextActionCreator = (data) => ({
   payload: data,
 })
 
+const setOnlineStatus: ContextActionCreator = (data) => ({
+  type: ACTION_TYPES.SET_ONLINE_STATUS,
+  key: ACTION_KEYS.ONLINE_STATUS,
+  payload: data,
+})
+
 const actions = {
   setIsDataBaseLive,
+  setOnlineStatus,
 }
 
 export default actions
