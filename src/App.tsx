@@ -1,11 +1,12 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { paths } from './globals/helperFunctions/URL/constants'
-import './App.css'
+import { paths } from 'globals/helperFunctions/URL/constants'
+// Pages
+import MainPage from 'pages/MainPage/mainPage'
+import LoginPage from 'pages/Login/loginPage'
+import SignUp from 'pages/SignUp/SignUp'
 
-import MainPage from './pages/MainPage/mainPage'
-import LoginPage from './pages/Login/loginPage'
-import SignUp from './pages/SignUp/SignUp'
+import './App.css'
 
 const App = ({ client }: { client: any }) => {
   return (

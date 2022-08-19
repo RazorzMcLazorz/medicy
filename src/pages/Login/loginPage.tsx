@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import useUserInfo from '../../hooks/UserInfoHook/useUserInfo'
-import Button from '../../globals/components/button/Button'
-import MainPageBackground from '../../globals/mainPageBackground/mainPageBackground'
-import TextField from '../../globals/components/textField/TextField'
-import { paths } from '../../globals/helperFunctions/URL/constants'
+import useUserInfo from 'hooks/UserInfoHook/useUserInfo'
+import Button from 'globals/components/button/Button'
+import MainPageBackground from 'globals/mainPageBackground/mainPageBackground'
+import TextField from 'globals/components/textField/TextField'
+import { paths } from 'globals/helperFunctions/URL/constants'
 import './styles.css'
 
 const LoginPage = () => {
