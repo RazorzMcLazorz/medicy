@@ -1,23 +1,34 @@
 import React, { useState } from 'react'
+import { Account } from 'appwrite'
 import useUserInfo from '../../hooks/UserInfoHook/useUserInfo'
 import MainPageBackground from '../../common/mainPageBackground/mainPageBackground'
 import TextField from '../../components/textField/TextField'
-import { paths } from '../../common/helperFunctions/URL/constants'
+import URL from '../../common/helperFunctions/URL/URL'
 import './styles.css'
 
-const LoginPage = () => {
+const SignUp = ({ client }: { client: any }) => {
   const [messageState, setMessageState] = useState('')
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
-
   const [{ userName }] = useUserInfo()
+  const account = new Account(client)
+
+  // Register User
+  account.create('unique()', 'me@example.com', 'password', 'Jane Doe').then(
+    (response) => {
+      console.log(response)
+    },
+    (error) => {
+      console.log(error)
+    }
+  )
 
   return (
     <div className='login'>
       <MainPageBackground />
       <div>
         <div className='loginComponent'>
-          <div>Login</div>
+          <div>Sign up</div>
           {messageState ? (
             <>
               <br />
@@ -41,11 +52,10 @@ const LoginPage = () => {
             value={password}
           />
           <br />
-          <a href={paths.signUp}>Sign Up</a>
         </div>
       </div>
     </div>
   )
 }
 
-export default LoginPage
+export default SignUp

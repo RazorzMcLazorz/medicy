@@ -14,6 +14,7 @@ const MainPage = () => {
   useEffect(() => {
     checkOnlineStatus()
     checkDataBaseServiceIsLive()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   console.log(onlineStatus)
@@ -33,12 +34,12 @@ const MainPage = () => {
             ) : (
               <div>
                 <Button onClick={URL.login}>Login</Button>
-                {onlineStatus ?? (
+                {onlineStatus ? null : (
                   <Button
                     onClick={() => {
                       console.log('offline')
                     }}>
-                    Play Offline Guest
+                    Play Offline
                   </Button>
                 )}
               </div>
@@ -47,7 +48,7 @@ const MainPage = () => {
         ) : (
           <div className='buttonRow'>
             <div>Loading for Database to boot up please wait a minute! =)</div>
-            {onlineStatus ?? (
+            {onlineStatus ? null : (
               <Button
                 onClick={() => {
                   console.log('offline')
