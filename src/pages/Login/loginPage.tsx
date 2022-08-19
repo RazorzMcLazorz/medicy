@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import useUserInfo from '../../hooks/UserInfoHook/useUserInfo'
+import Button from '../../components/button/Button'
 import MainPageBackground from '../../common/mainPageBackground/mainPageBackground'
 import TextField from '../../components/textField/TextField'
 import { paths } from '../../common/helperFunctions/URL/constants'
@@ -41,7 +42,14 @@ const LoginPage = () => {
             value={password}
           />
           <br />
-          <a href={paths.signUp}>Sign Up</a>
+          <Button
+            onClick={() => {
+              console.log('login')
+            }}>
+            Login
+          </Button>
+          <br />
+          <a href={paths.signUp}>Sign Up?</a>
         </div>
       </div>
     </div>

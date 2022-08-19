@@ -1,17 +1,15 @@
 import React, { useState } from 'react'
 import { Account } from 'appwrite'
-import useUserInfo from '../../hooks/UserInfoHook/useUserInfo'
 import Button from '../../components/button/Button'
 import MainPageBackground from '../../common/mainPageBackground/mainPageBackground'
 import TextField from '../../components/textField/TextField'
-import URL from '../../common/helperFunctions/URL/URL'
+import { paths } from '../../common/helperFunctions/URL/constants'
 import './styles.css'
 
 const SignUp = ({ client }: { client: any }) => {
   const [messageState, setMessageState] = useState('')
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
-  const [{ userName }] = useUserInfo()
   const account = new Account(client)
 
   // Register User
@@ -56,9 +54,12 @@ const SignUp = ({ client }: { client: any }) => {
           <Button
             onClick={() => {
               console.log('sign up')
-            }}>
+            }}
+            disabled={!name && !password}>
             Sign Up
           </Button>
+          <br />
+          <a href={paths.login}>Login?</a>
         </div>
       </div>
     </div>
