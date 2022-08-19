@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Account } from 'appwrite'
 import useUserInfo from '../../hooks/UserInfoHook/useUserInfo'
+import Button from '../../components/button/Button'
 import MainPageBackground from '../../common/mainPageBackground/mainPageBackground'
 import TextField from '../../components/textField/TextField'
 import URL from '../../common/helperFunctions/URL/URL'
@@ -28,7 +29,7 @@ const SignUp = ({ client }: { client: any }) => {
       <MainPageBackground />
       <div>
         <div className='loginComponent'>
-          <div>Sign up</div>
+          <div>Registration</div>
           {messageState ? (
             <>
               <br />
@@ -52,6 +53,12 @@ const SignUp = ({ client }: { client: any }) => {
             value={password}
           />
           <br />
+          <Button
+            onClick={() => {
+              console.log('sign up')
+            }}>
+            Sign Up
+          </Button>
         </div>
       </div>
     </div>
