@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { paths } from './common/helperFunctions/URL/constants'
+import { paths } from './globals/helperFunctions/URL/constants'
 import './App.css'
 
 import MainPage from './pages/MainPage/mainPage'

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import useAppData from '../../hooks/AppDataHook/useAppData'
 import useUserInfo from '../../hooks/UserInfoHook/useUserInfo'
-import Button from '../../components/button/Button'
-import MainPageBackground from '../../common/mainPageBackground/mainPageBackground'
-import URL from '../../common/helperFunctions/URL/URL'
+import Button from '../../globals/components/button/Button'
+import MainPageBackground from '../../globals/mainPageBackground/mainPageBackground'
+import URL from '../../globals/helperFunctions/URL/URL'
 import './styles.css'
 
 const MainPage = () => {
