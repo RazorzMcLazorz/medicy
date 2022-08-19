@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import useUserInfo from 'hooks/UserInfoHook/useUserInfo'
 import Button from 'globals/components/button/Button'
 import MainPageBackground from 'globals/mainPageBackground/mainPageBackground'
 import TextField from 'globals/components/textField/TextField'
@@ -10,8 +9,6 @@ const LoginPage = () => {
   const [messageState, setMessageState] = useState('')
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
-
-  const [{ userName }] = useUserInfo()
 
   return (
     <div className='login'>

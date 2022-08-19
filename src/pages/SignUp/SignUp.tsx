@@ -4,27 +4,36 @@ import Button from 'globals/components/button/Button'
 import MainPageBackground from 'globals/mainPageBackground/mainPageBackground'
 import TextField from 'globals/components/textField/TextField'
 import { paths } from 'globals/helperFunctions/URL/constants'
+import IconButton from 'globals/components/IconButton/IconButton'
+import URL from 'globals/helperFunctions/URL/URL'
 import './styles.css'
 
 const SignUp = ({ client }: { client: any }) => {
   const [messageState, setMessageState] = useState('')
   const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const account = new Account(client)
 
   // Register User
-  account.create('unique()', 'me@example.com', 'password', 'Jane Doe').then(
-    (response) => {
-      console.log(response)
-    },
-    (error) => {
-      console.log(error)
-    }
-  )
+
+  const onSubmit = () => {
+    account.create('unique()', email, password, name).then(
+      (response) => {
+        console.log(response)
+      },
+      (error) => {
+        setMessageState(error)
+      }
+    )
+  }
 
   return (
     <div className='login'>
       <MainPageBackground />
+      <div className='iconButtonBackButton'>
+        <IconButton icon='arrowBackIcon' onClick={() => URL.root} />
+      </div>
       <div>
         <div className='loginComponent'>
           <div>Registration</div>
@@ -44,6 +53,14 @@ const SignUp = ({ client }: { client: any }) => {
           />
           <br />
           <TextField
+            id='email'
+            name='email'
+            label='Email:'
+            onChange={(val) => setEmail(val)}
+            value={email}
+          />
+          <br />
+          <TextField
             id='password'
             name='password'
             label='Password:'
@@ -51,11 +68,7 @@ const SignUp = ({ client }: { client: any }) => {
             value={password}
           />
           <br />
-          <Button
-            onClick={() => {
-              console.log('sign up')
-            }}
-            disabled={!name && !password}>
+          <Button onClick={() => onSubmit()} disabled={!name && !password && !email}>
             Sign Up
           </Button>
           <br />
