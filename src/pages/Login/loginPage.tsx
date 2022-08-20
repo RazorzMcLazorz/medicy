@@ -29,6 +29,7 @@ const LoginPage = ({ client }: { client: any }) => {
             setLocalStorage('sessionId', accountLoginResponse.$id)
             setLocalStorage('userId', accountLoginResponse.userId)
             setLocalStorage('jwt', jwtResponse.jwt)
+            client.setJWT(jwtResponse.jwt)
             account.get().then(
               function (response) {
                 console.log(response) // Success
@@ -36,12 +37,12 @@ const LoginPage = ({ client }: { client: any }) => {
                 navigate(URL.root, { replace: true })
               },
               function (error) {
-                console.log(error) // Failure
+                setMessageState(error.response.message)
               }
             )
           },
           function (error) {
-            console.log(error) // Failure
+            setMessageState(error.response.message)
           }
         )
       },

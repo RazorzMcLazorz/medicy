@@ -35,7 +35,7 @@ const App = ({ client }: { client: any }) => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={paths.root} element={<MainPage />} />
+        <Route path={paths.root} element={<MainPage client={client} />} />
         <Route path={paths.login} element={<LoginPage client={client} />} />
         <Route path={paths.signUp} element={<SignUp client={client} />} />
       </Routes>
