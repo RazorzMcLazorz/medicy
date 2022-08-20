@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react'
-import useAppData from '../../hooks/AppDataHook/useAppData'
-import useUserInfo from '../../hooks/UserInfoHook/useUserInfo'
-import Button from '../../globals/components/button/Button'
-import MainPageBackground from '../../globals/mainPageBackground/mainPageBackground'
-import URL from '../../globals/helperFunctions/URL/URL'
+import { useNavigate } from 'react-router-dom'
+import useAppData from 'hooks/AppDataHook/useAppData'
+import useUserInfo from 'hooks/UserInfoHook/useUserInfo'
+import Button from 'globals/components/button/Button'
+import MainPageBackground from 'globals/mainPageBackground/mainPageBackground'
+import URL from 'globals/helperFunctions/URL/URL'
 import './styles.css'
 
 const MainPage = () => {
   const [{ isDataBaseLive, onlineStatus }, { checkDataBaseServiceIsLive, checkOnlineStatus }] =
     useAppData()
   const [{ userName }] = useUserInfo()
+  const navigate = useNavigate()
 
   useEffect(() => {
     checkOnlineStatus()
@@ -33,7 +35,7 @@ const MainPage = () => {
               </div>
             ) : (
               <div>
-                <Button onClick={URL.login}>Login</Button>
+                <Button onClick={() => navigate(URL.login, { replace: true })}>Login</Button>
                 {onlineStatus ? null : (
                   <Button
                     onClick={() => {

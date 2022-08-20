@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Button from 'globals/components/button/Button'
 import MainPageBackground from 'globals/mainPageBackground/mainPageBackground'
 import TextField from 'globals/components/textField/TextField'
-import { paths } from 'globals/helperFunctions/URL/constants'
+import URL from 'globals/helperFunctions/URL/URL'
 import './styles.css'
 
 const LoginPage = () => {
   const [messageState, setMessageState] = useState('')
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
+  const navigate = useNavigate()
 
   return (
     <div className='login'>
@@ -46,7 +48,7 @@ const LoginPage = () => {
             Login
           </Button>
           <br />
-          <a href={paths.signUp}>Sign Up?</a>
+          <a href={URL.signUp}>Sign Up?</a>
         </div>
       </div>
     </div>

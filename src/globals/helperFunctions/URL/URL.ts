@@ -1,14 +1,7 @@
-import Nav from '../Nav/Nav'
-import { paths } from './constants'
-
-class URL {
-  static root = () => {
-    Nav.path(paths.root)
-  }
-
-  static login = () => {
-    Nav.path(paths.login)
-  }
+const URL = {
+  root: '/',
+  login: '/login',
+  signUp: '/signup',
 }
 
 export default URL
