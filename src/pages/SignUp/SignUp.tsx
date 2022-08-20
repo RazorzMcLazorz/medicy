@@ -18,11 +18,11 @@ const SignUp = ({ client }: { client: any }) => {
 
   const onSubmit = () => {
     account.create('unique()', email, password, name).then(
-      () => {
+      (response) => {
+        console.log(response)
         navigate(URL.root, { replace: true })
       },
       (error) => {
-        console.log(JSON.stringify(error))
         setMessageState(error.response.message)
       }
     )
@@ -32,7 +32,7 @@ const SignUp = ({ client }: { client: any }) => {
     <div className='login'>
       <MainPageBackground />
       <div className='iconButtonBackButton'>
-        <IconButton icon='arrowBackIcon' onClick={() => URL.root} />
+        <IconButton icon='arrowBackIcon' onClick={() => navigate(URL.root, { replace: true })} />
       </div>
       <div>
         <div className='loginComponent'>
