@@ -23,25 +23,23 @@ const LoginPage = ({ client }: { client: any }) => {
       (accountLoginResponse) => {
         const promise = account.createJWT()
         promise.then(
-          function (jwtResponse) {
-            console.log(accountLoginResponse)
-            console.log(jwtResponse) // Success
+          (jwtResponse) => {
             setLocalStorage('sessionId', accountLoginResponse.$id)
             setLocalStorage('userId', accountLoginResponse.userId)
             setLocalStorage('jwt', jwtResponse.jwt)
             client.setJWT(jwtResponse.jwt)
+
             account.get().then(
-              function (response) {
-                console.log(response) // Success
+              (response) => {
                 setUserName(response.name)
                 navigate(URL.root, { replace: true })
               },
-              function (error) {
+              (error) => {
                 setMessageState(error.response.message)
               }
             )
           },
-          function (error) {
+          (error) => {
             setMessageState(error.response.message)
           }
         )

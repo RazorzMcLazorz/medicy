@@ -13,6 +13,7 @@ import Button from 'globals/components/button/Button'
 import MainPageBackground from 'globals/mainPageBackground/mainPageBackground'
 import URL from 'globals/helperFunctions/URL/URL'
 import Drawer from 'globals/components/drawer/Drawer'
+import { setLocalStorage } from 'globals/helperFunctions/Utils/utils'
 import './styles.css'
 
 const MainPage = ({ client }: { client: any }) => {
@@ -40,6 +41,10 @@ const MainPage = ({ client }: { client: any }) => {
           function (response) {
             console.log(response) // Success
             setUserName('')
+            setLocalStorage('sessionId', '')
+            setLocalStorage('userId', '')
+            setLocalStorage('jwt', '')
+            setIsOpen(false)
           },
           function (error) {
             console.log(error) // Failure

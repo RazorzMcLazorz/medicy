@@ -20,7 +20,7 @@ const SignUp = ({ client }: { client: any }) => {
     account.create('unique()', email, password, name).then(
       (response) => {
         console.log(response)
-        navigate(URL.root, { replace: true })
+        navigate(URL.login, { replace: true })
       },
       (error) => {
         setMessageState(error.response.message)
