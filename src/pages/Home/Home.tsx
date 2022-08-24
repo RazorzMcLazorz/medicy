@@ -82,7 +82,7 @@ const MainPage = ({ client }: { client: any }) => {
             <div className='buttonRow'>
               {userName ? (
                 <div>
-                  <Button>New</Button>
+                  <Button onClick={() => navigate(URL.createGame, { replace: true })}>New</Button>
                   <Button>Load</Button>
                 </div>
               ) : (

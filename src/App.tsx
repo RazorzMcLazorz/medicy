@@ -2,12 +2,13 @@ import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Account } from 'appwrite'
 import useUserInfo from 'hooks/UserInfoHook/useUserInfo'
-import { paths } from 'globals/helperFunctions/URL/constants'
+import URL from 'globals/helperFunctions/URL/URL'
 import { getLocalStorage } from 'globals/helperFunctions/Utils/utils'
 // Pages
 import Home from 'pages/Home/Home'
 import Login from 'pages/Login/Login'
 import SignUp from 'pages/SignUp/SignUp'
+import CreateGame from 'pages/CreateGame/CreateGame'
 
 import './App.css'
 
@@ -26,7 +27,7 @@ const App = ({ client }: { client: any }) => {
           setUserName(response.name)
         },
         function (error) {
-          console.log(error) // Failure
+          console.log(JSON.stringify(error)) // Failure
         }
       )
     }
@@ -35,9 +36,10 @@ const App = ({ client }: { client: any }) => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={paths.root} element={<Home client={client} />} />
-        <Route path={paths.login} element={<Login client={client} />} />
-        <Route path={paths.signUp} element={<SignUp client={client} />} />
+        <Route path={URL.root} element={<Home client={client} />} />
+        <Route path={URL.login} element={<Login client={client} />} />
+        <Route path={URL.signUp} element={<SignUp client={client} />} />
+        <Route path={URL.createGame} element={<CreateGame client={client} />} />
       </Routes>
     </BrowserRouter>
   )
