@@ -31,6 +31,8 @@ const App = ({ client }: { client: any }) => {
         }
       )
     }
+    // This is meant to only run once on mount of the page
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
