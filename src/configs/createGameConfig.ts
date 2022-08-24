@@ -8,7 +8,7 @@ export const MAP_SIZES = ['small', 'medium', 'large']
 export const DEFAULT_DIFFICULTY = 'normal'
 
 // Sets all Difficulty sizes allowed
-export const DIFFICULTIES = ['easy', 'normal', 'large']
+export const DIFFICULTIES = ['easy', 'normal', 'hard']
 
 // Sets Default Has Time Limit
 export const DEFAULT_HAS_TIME_LIMIT = 'yes'

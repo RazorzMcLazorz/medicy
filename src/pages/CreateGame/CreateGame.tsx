@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import MainPageBackground from 'globals/mainPageBackground/mainPageBackground'
 import Button from 'globals/components/button/Button'
 import {
@@ -10,6 +11,7 @@ import {
   HAS_TIME_LIMITS,
 } from 'configs/createGameConfig'
 import { capitalizeFirstLetter } from 'globals/helperFunctions/Utils/utils'
+import URL from 'globals/helperFunctions/URL/URL'
 import './styles.css'
 
 const cgsButton = (funct: () => void, type: string, state: string) => (
@@ -19,6 +21,7 @@ const cgsButton = (funct: () => void, type: string, state: string) => (
 )
 
 const CreateGame = ({ client }: { client: any }) => {
+  const navigate = useNavigate()
   const [mapSize, setMapSize] = useState(DEFAULT_MAP_SIZE)
   const [difficulty, setDifficulty] = useState(DEFAULT_DIFFICULTY)
   const [timeLimit, setTimeLimit] = useState(DEFAULT_HAS_TIME_LIMIT)
@@ -28,7 +31,9 @@ const CreateGame = ({ client }: { client: any }) => {
       <MainPageBackground />
       <div>
         <div className='createTitle'>Create Game</div>
-        <div className='createReason'>Reason</div>
+        <div className='createReason'>
+          Generate a map of your choice to play on, the size can determine the time you have
+        </div>
         <div className='createOptions'>
           <div className='createOptionsRow1'>
             <h4>Map Size: {capitalizeFirstLetter(mapSize)}</h4>
@@ -44,12 +49,8 @@ const CreateGame = ({ client }: { client: any }) => {
           </div>
         </div>
         <div className='createSave'>
-          <a href='/' className='button'>
-            Cancel
-          </a>
-          <a className='button' onClick={() => console.log()}>
-            Create
-          </a>
+          <Button onClick={() => navigate(URL.root, { replace: true })}>Cancel</Button>
+          <Button onClick={() => navigate(URL.root, { replace: true })}>Create</Button>
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@
 }
 
 .button:hover {
-  background-color: #678;
+  background-color: rgba(102, 119, 136, 0.8); /* #678 **/
   cursor: pointer;
   border-color: #996600;
   color: black;
@@ -30,7 +30,7 @@
 .buttonSelected {
   display: flex;
   width: 150px;
-  background-color: #678;
+  background-color: rgba(102, 119, 136, 0.8); /* #678 **/
   justify-content: center;
   align-items: center;
   padding: 5px;
