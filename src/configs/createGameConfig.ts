@@ -1,17 +1,21 @@
-// Sets Default Map Size
-export const DEFAULT_MAP_SIZE = 'small'
+const CONFIG = {
+  // Sets Default Map Size
+  DEFAULT_MAP_SIZE: 'small',
 
-// Sets all Map sizes allowed
-export const MAP_SIZES = ['small', 'medium', 'large']
+  // Sets all Map sizes allowed
+  MAP_SIZES: ['small', 'medium', 'large'],
 
-// Sets Default Difficulty Size
-export const DEFAULT_DIFFICULTY = 'normal'
+  // Sets Default Difficulty Size
+  DEFAULT_DIFFICULTY: 'normal',
 
-// Sets all Difficulty sizes allowed
-export const DIFFICULTIES = ['easy', 'normal', 'hard']
+  // Sets all Difficulty sizes allowed
+  DIFFICULTIES: ['easy', 'normal', 'hard'],
 
-// Sets Default Has Time Limit
-export const DEFAULT_HAS_TIME_LIMIT = 'yes'
+  // Sets Default Has Time Limit
+  DEFAULT_HAS_TIME_LIMIT: 'yes',
 
-// Sets the options for Has Time Limit
-export const HAS_TIME_LIMITS = ['yes', 'no']
+  // Sets the options for Has Time Limit
+  HAS_TIME_LIMITS: ['yes', 'no'],
+}
+
+export default CONFIG
