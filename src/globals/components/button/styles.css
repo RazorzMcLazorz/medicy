@@ -22,3 +22,23 @@
   color: black;
   text-decoration: none;
 }
+
+.slimButton {
+  height: 30px;
+}
+
+.buttonSelected {
+  display: flex;
+  width: 150px;
+  background-color: #678;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-color: #996600;
+  border-style: ridge;
+  border-width: 5px;
+  border-radius: 5px;
+  margin: 5px;
+  color: black;
+  text-decoration: none;
+}

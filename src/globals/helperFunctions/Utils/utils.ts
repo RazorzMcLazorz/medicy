@@ -6,3 +6,5 @@ export const getLocalStorage = (item: string): any => {
   if (val) return JSON.parse(val)
   return undefined
 }
+
+export const capitalizeFirstLetter = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
