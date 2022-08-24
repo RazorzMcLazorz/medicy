@@ -2,14 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import MainPageBackground from 'globals/mainPageBackground/mainPageBackground'
 import Button from 'globals/components/button/Button'
-import {
-  DEFAULT_MAP_SIZE,
-  MAP_SIZES,
-  DEFAULT_DIFFICULTY,
-  DIFFICULTIES,
-  DEFAULT_HAS_TIME_LIMIT,
-  HAS_TIME_LIMITS,
-} from 'configs/createGameConfig'
+import CONFIG from 'configs/createGameConfig'
 import { capitalizeFirstLetter } from 'globals/helperFunctions/Utils/utils'
 import URL from 'globals/helperFunctions/URL/URL'
 import './styles.css'
@@ -21,6 +14,15 @@ const cgsButton = (funct: () => void, type: string, state: string) => (
 )
 
 const CreateGame = ({ client }: { client: any }) => {
+  const {
+    DEFAULT_MAP_SIZE,
+    MAP_SIZES,
+    DEFAULT_DIFFICULTY,
+    DIFFICULTIES,
+    DEFAULT_HAS_TIME_LIMIT,
+    HAS_TIME_LIMITS,
+  } = CONFIG
+
   const navigate = useNavigate()
   const [mapSize, setMapSize] = useState(DEFAULT_MAP_SIZE)
   const [difficulty, setDifficulty] = useState(DEFAULT_DIFFICULTY)
