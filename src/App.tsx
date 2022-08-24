@@ -5,8 +5,8 @@ import useUserInfo from 'hooks/UserInfoHook/useUserInfo'
 import { paths } from 'globals/helperFunctions/URL/constants'
 import { getLocalStorage } from 'globals/helperFunctions/Utils/utils'
 // Pages
-import MainPage from 'pages/MainPage/mainPage'
-import LoginPage from 'pages/Login/loginPage'
+import Home from 'pages/Home/Home'
+import Login from 'pages/Login/Login'
 import SignUp from 'pages/SignUp/SignUp'
 
 import './App.css'
@@ -35,8 +35,8 @@ const App = ({ client }: { client: any }) => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={paths.root} element={<MainPage client={client} />} />
-        <Route path={paths.login} element={<LoginPage client={client} />} />
+        <Route path={paths.root} element={<Home client={client} />} />
+        <Route path={paths.login} element={<Login client={client} />} />
         <Route path={paths.signUp} element={<SignUp client={client} />} />
       </Routes>
     </BrowserRouter>
