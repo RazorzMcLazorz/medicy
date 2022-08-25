@@ -17,8 +17,7 @@ import { setLocalStorage } from 'globals/helperFunctions/Utils/utils'
 import './styles.css'
 
 const MainPage = ({ client }: { client: any }) => {
-  const [{ isDataBaseLive, onlineStatus }, { checkDataBaseServiceIsLive, checkOnlineStatus }] =
-    useAppData()
+  const [{ onlineStatus }, { checkOnlineStatus }] = useAppData()
   const [{ userName }, { setUserName }] = useUserInfo()
   const navigate = useNavigate()
   const [isOpen, setIsOpen] = useState(false)
@@ -27,7 +26,6 @@ const MainPage = ({ client }: { client: any }) => {
 
   useEffect(() => {
     checkOnlineStatus()
-    checkDataBaseServiceIsLive()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -78,7 +76,7 @@ const MainPage = ({ client }: { client: any }) => {
         </div>
         <div className='mainMenuBody'>
           <h1>Medicy</h1>
-          {isDataBaseLive ? (
+          {onlineStatus ? (
             <div className='buttonRow'>
               {userName ? (
                 <div>

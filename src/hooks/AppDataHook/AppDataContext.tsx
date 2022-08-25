@@ -6,7 +6,6 @@ const AppDataContext = React.createContext({})
 const AppDataDispatch = React.createContext({})
 
 export const initState: AppDataContextState = {
-  isDataBaseLive: false,
   onlineStatus: false,
 }
 
