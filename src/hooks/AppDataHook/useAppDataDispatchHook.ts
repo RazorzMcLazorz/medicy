@@ -9,8 +9,11 @@ export default function useAppDataDispatchHook(): AppDataContextHelpers {
   const setOnlineStatus: ContextHelperFunction = (value) =>
     appDataDispatch(actions.setOnlineStatus(value))
 
+  const setGame: ContextHelperFunction = (value) => appDataDispatch(actions.setGame(value))
+
   const helpers: AppDataContextHelpers = {
     setOnlineStatus,
+    setGame,
   }
 
   return helpers

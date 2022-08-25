@@ -7,8 +7,15 @@ const setOnlineStatus: ContextActionCreator = (data) => ({
   payload: data,
 })
 
+const setGame: ContextActionCreator = (data) => ({
+  type: ACTION_TYPES.SET_GAME,
+  key: ACTION_KEYS.GAME,
+  payload: data,
+})
+
 const actions = {
   setOnlineStatus,
+  setGame,
 }
 
 export default actions

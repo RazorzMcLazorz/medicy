@@ -7,6 +7,7 @@ const AppDataDispatch = React.createContext({})
 
 export const initState: AppDataContextState = {
   onlineStatus: false,
+  game: undefined,
 }
 
 export default function AppDataContextProvider({ children }: AppDataContextProps) {
