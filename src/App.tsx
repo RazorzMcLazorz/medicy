@@ -9,6 +9,7 @@ import Home from 'pages/Home/Home'
 import Login from 'pages/Login/Login'
 import SignUp from 'pages/SignUp/SignUp'
 import CreateGame from 'pages/CreateGame/CreateGame'
+import Game from 'pages/Game/Game'
 
 import './App.css'
 
@@ -42,6 +43,7 @@ const App = ({ client }: { client: any }) => {
         <Route path={URL.login} element={<Login client={client} />} />
         <Route path={URL.signUp} element={<SignUp client={client} />} />
         <Route path={URL.createGame} element={<CreateGame client={client} />} />
+        <Route path={URL.game} element={<Game />} />
       </Routes>
     </BrowserRouter>
   )

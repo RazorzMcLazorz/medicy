@@ -52,7 +52,7 @@ const CreateGame = ({ client }: { client: any }) => {
         </div>
         <div className='createSave'>
           <Button onClick={() => navigate(URL.root, { replace: true })}>Cancel</Button>
-          <Button onClick={() => navigate(URL.root, { replace: true })}>Create</Button>
+          <Button onClick={() => navigate(URL.game, { replace: true })}>Create</Button>
         </div>
       </div>
     </div>
