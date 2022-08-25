@@ -1,13 +1,14 @@
 import React, { useReducer } from 'react'
 import AppDataContextReducer from './appDataContextReducer'
 import { AppDataContextState, AppDataContextProps } from './types'
+import { DEFAULT_GAME_CONFIG } from 'configs/gameConfig'
 
 const AppDataContext = React.createContext({})
 const AppDataDispatch = React.createContext({})
 
 export const initState: AppDataContextState = {
   onlineStatus: false,
-  game: undefined,
+  game: DEFAULT_GAME_CONFIG,
 }
 
 export default function AppDataContextProvider({ children }: AppDataContextProps) {

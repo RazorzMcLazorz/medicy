@@ -1,8 +1,9 @@
+import { IDefaultGameConfig } from 'configs/gameConfig'
 import type { ContextHelperFunction } from '../types'
 
 export interface AppDataContextState {
   onlineStatus: boolean
-  game?: {}
+  game: IDefaultGameConfig
 }
 
 export interface AppDataContextHelpers {
