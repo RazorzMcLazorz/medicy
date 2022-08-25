@@ -7,7 +7,7 @@ import MainPageBackground from 'globals/mainPageBackground/mainPageBackground'
 import TextField from 'globals/components/textField/TextField'
 import IconButton from 'globals/components/IconButton/IconButton'
 import URL from 'globals/helperFunctions/URL/URL'
-import { setLocalStorage } from 'globals/helperFunctions/Utils/utils'
+import { setLocalStorage, removeLocalStorage } from 'globals/helperFunctions/Utils/utils'
 import './styles.css'
 
 const LoginPage = ({ client }: { client: any }) => {
@@ -19,6 +19,11 @@ const LoginPage = ({ client }: { client: any }) => {
   const account = new Account(client)
 
   const onSubmit = () => {
+    // When user clicks login, it will sometimes fail to do so, this will clear previous state allowing a fresh login
+    removeLocalStorage('jwt')
+    removeLocalStorage('sessionId')
+    removeLocalStorage('userId')
+    removeLocalStorage('cookieFallback')
     account.createEmailSession(email, password).then(
       (accountLoginResponse) => {
         const promise = account.createJWT()
