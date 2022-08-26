@@ -4,7 +4,7 @@ enum MAP_SIZE {
   large = 'large',
 }
 
-enum DIFFICULTY {
+export enum DIFFICULTY {
   easy = 'easy',
   normal = 'normal',
   hard = 'hard',
