@@ -4,6 +4,12 @@ enum MAP_SIZE {
   large = 'large',
 }
 
+enum DIFFICULTY {
+  easy = 'easy',
+  normal = 'normal',
+  hard = 'hard',
+}
+
 interface IConfig {
   DEFAULT_MAP_SIZE: MAP_SIZE
   MAP_SIZES: MAP_SIZE[]
@@ -12,8 +18,8 @@ interface IConfig {
     [MAP_SIZE.medium]: number
     [MAP_SIZE.large]: number
   }
-  DEFAULT_DIFFICULTY: string
-  DIFFICULTIES: string[]
+  DEFAULT_DIFFICULTY: DIFFICULTY
+  DIFFICULTIES: DIFFICULTY[]
   DEFAULT_HAS_TIME_LIMIT: string
   HAS_TIME_LIMITS: string[]
 }
@@ -28,15 +34,15 @@ const CONFIG: IConfig = {
   // Sets the exact size of each map size allowed
   MAP_EXACT_SIZE: {
     small: 15,
-    medium: 15,
-    large: 15,
+    medium: 30,
+    large: 45,
   },
 
   // Sets Default Difficulty Size
-  DEFAULT_DIFFICULTY: 'normal',
+  DEFAULT_DIFFICULTY: DIFFICULTY.normal,
 
   // Sets all Difficulty sizes allowed
-  DIFFICULTIES: ['easy', 'normal', 'hard'],
+  DIFFICULTIES: [DIFFICULTY.easy, DIFFICULTY.normal, DIFFICULTY.hard],
 
   // Sets Default Has Time Limit
   DEFAULT_HAS_TIME_LIMIT: 'yes',
