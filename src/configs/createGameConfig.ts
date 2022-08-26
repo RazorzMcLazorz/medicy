@@ -10,6 +10,11 @@ export enum DIFFICULTY {
   hard = 'hard',
 }
 
+export enum TIME_LIMIT {
+  yes = 'yes',
+  no = 'no',
+}
+
 interface IConfig {
   DEFAULT_MAP_SIZE: MAP_SIZE
   MAP_SIZES: MAP_SIZE[]
@@ -20,8 +25,8 @@ interface IConfig {
   }
   DEFAULT_DIFFICULTY: DIFFICULTY
   DIFFICULTIES: DIFFICULTY[]
-  DEFAULT_HAS_TIME_LIMIT: string
-  HAS_TIME_LIMITS: string[]
+  DEFAULT_HAS_TIME_LIMIT: TIME_LIMIT
+  HAS_TIME_LIMITS: TIME_LIMIT[]
 }
 
 const CONFIG: IConfig = {
@@ -45,10 +50,10 @@ const CONFIG: IConfig = {
   DIFFICULTIES: [DIFFICULTY.easy, DIFFICULTY.normal, DIFFICULTY.hard],
 
   // Sets Default Has Time Limit
-  DEFAULT_HAS_TIME_LIMIT: 'yes',
+  DEFAULT_HAS_TIME_LIMIT: TIME_LIMIT.yes,
 
   // Sets the options for Has Time Limit
-  HAS_TIME_LIMITS: ['yes', 'no'],
+  HAS_TIME_LIMITS: [TIME_LIMIT.yes, TIME_LIMIT.no],
 }
 
 export default CONFIG
