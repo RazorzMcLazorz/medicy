@@ -13,6 +13,7 @@ export interface AppDataContextHelpers {
 
 export interface AppDataHelpers extends AppDataContextHelpers {
   checkOnlineStatus: () => void
+  handleIntialMapGeneration: (mapSize: number) => MapDetails[][]
 }
 
 export type AppDataHook = [AppDataContextState, AppDataHelpers]
@@ -30,3 +31,5 @@ export interface AppDataActionsKey {
 export interface AppDataContextProps {
   children: any
 }
+
+export interface MapDetails {}
