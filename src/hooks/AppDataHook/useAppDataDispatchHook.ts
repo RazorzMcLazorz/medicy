@@ -6,15 +6,14 @@ import type { ContextHelperFunction } from '../types'
 export default function useAppDataDispatchHook(): AppDataContextHelpers {
   const appDataDispatch = useAppDataDispatch()
 
-  const setIsDataBaseLive: ContextHelperFunction = (value) =>
-    appDataDispatch(actions.setIsDataBaseLive(value))
-
   const setOnlineStatus: ContextHelperFunction = (value) =>
-    appDataDispatch(actions.setIsDataBaseLive(value))
+    appDataDispatch(actions.setOnlineStatus(value))
+
+  const setGame: ContextHelperFunction = (value) => appDataDispatch(actions.setGame(value))
 
   const helpers: AppDataContextHelpers = {
-    setIsDataBaseLive,
     setOnlineStatus,
+    setGame,
   }
 
   return helpers

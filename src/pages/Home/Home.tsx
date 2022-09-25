@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Account } from 'appwrite'
 import ButtonMUI from '@mui/material/Button'
@@ -17,8 +17,7 @@ import { setLocalStorage } from 'globals/helperFunctions/Utils/utils'
 import './styles.css'
 
 const MainPage = ({ client }: { client: any }) => {
-  const [{ isDataBaseLive, onlineStatus }, { checkDataBaseServiceIsLive, checkOnlineStatus }] =
-    useAppData()
+  const [, { checkOnlineStatus }] = useAppData()
   const [{ userName }, { setUserName }] = useUserInfo()
   const navigate = useNavigate()
   const [isOpen, setIsOpen] = useState(false)
@@ -27,11 +26,9 @@ const MainPage = ({ client }: { client: any }) => {
 
   useEffect(() => {
     checkOnlineStatus()
-    checkDataBaseServiceIsLive()
+    // This is the initial App Mount
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
-  console.log('onlineStatus', onlineStatus)
 
   const DrawerButtons = [
     {
@@ -78,40 +75,18 @@ const MainPage = ({ client }: { client: any }) => {
         </div>
         <div className='mainMenuBody'>
           <h1>Medicy</h1>
-          {isDataBaseLive ? (
-            <div className='buttonRow'>
-              {userName ? (
-                <div>
-                  <Button>New</Button>
-                  <Button>Load</Button>
-                </div>
-              ) : (
-                <div>
-                  <Button onClick={() => navigate(URL.login, { replace: true })}>Login</Button>
-                  {onlineStatus ? null : (
-                    <Button
-                      onClick={() => {
-                        console.log('offline')
-                      }}>
-                      Play Offline
-                    </Button>
-                  )}
-                </div>
-              )}
-            </div>
-          ) : (
-            <div className='buttonRow'>
-              <div>Loading for Database to boot up please wait a minute! =)</div>
-              {onlineStatus ? null : (
-                <Button
-                  onClick={() => {
-                    console.log('offline')
-                  }}>
-                  Play Offline
-                </Button>
-              )}
-            </div>
-          )}
+          <div className='buttonRow'>
+            {userName ? (
+              <div>
+                <Button onClick={() => navigate(URL.createGame, { replace: true })}>New</Button>
+                <Button>Load</Button>
+              </div>
+            ) : (
+              <div>
+                <Button onClick={() => navigate(URL.login, { replace: true })}>Login</Button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </>

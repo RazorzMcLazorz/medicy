@@ -1,10 +1,31 @@
-import { DATA_BASE_URL } from '../../constants'
+import { IMap } from 'configs/gameConfig'
+import { TILE_INDEX, TILE_COUNT } from 'configs/tileConfig'
 
-export const checkDataBase = (): Promise<boolean> => {
-  return fetch(`${DATA_BASE_URL}/`)
-    .then((res) => res.ok)
-    .catch((res) => {
-      console.log(res)
-      return res.ok
-    })
+const tileSelector = () => {
+  const ran = Math.round(Math.random() * TILE_COUNT)
+  return TILE_INDEX[ran]
+}
+
+export const createInitialMapGen = (mapSize: number): IMap[][] => {
+  let baseMapSetup = new Array(mapSize).fill(
+    new Array(mapSize).fill(
+      {
+        xCoord: 0,
+        yCoord: 0,
+        baseTile: TILE_INDEX[0],
+        unit: 0,
+        building: 0,
+      },
+      0
+    ),
+    0
+  )
+  return baseMapSetup.map((mapRow: IMap[], xCoord: number) =>
+    mapRow.map((tile: IMap, yCoord: number) => ({
+      ...tile,
+      xCoord,
+      yCoord,
+      baseTile: tileSelector(),
+    }))
+  )
 }
