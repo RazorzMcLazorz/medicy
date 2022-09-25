@@ -31,5 +31,3 @@ export interface AppDataActionsKey {
 export interface AppDataContextProps {
   children: any
 }
-
-export interface MapDetails {}
