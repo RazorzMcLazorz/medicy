@@ -5,6 +5,7 @@ import Button from 'globals/components/button/Button'
 import CONFIG from 'configs/createGameConfig'
 import { capitalizeFirstLetter } from 'globals/helperFunctions/Utils/utils'
 import URL from 'globals/helperFunctions/URL/URL'
+import useAppData from 'hooks/AppDataHook/useAppData'
 import './styles.css'
 
 const cgsButton = (funct: () => void, type: string, state: string) => (
@@ -22,11 +23,16 @@ const CreateGame = ({ client }: { client: any }) => {
     DEFAULT_HAS_TIME_LIMIT,
     HAS_TIME_LIMITS,
   } = CONFIG
-
+  const [, { handleIntialMapGeneration }] = useAppData()
   const navigate = useNavigate()
   const [mapSize, setMapSize] = useState(DEFAULT_MAP_SIZE)
   const [difficulty, setDifficulty] = useState(DEFAULT_DIFFICULTY)
   const [timeLimit, setTimeLimit] = useState(DEFAULT_HAS_TIME_LIMIT)
+
+  const createGame = () => {
+    handleIntialMapGeneration(CONFIG.MAP_EXACT_SIZE[mapSize])
+    navigate(URL.game, { replace: true })
+  }
 
   return (
     <div>
@@ -52,7 +58,7 @@ const CreateGame = ({ client }: { client: any }) => {
         </div>
         <div className='createSave'>
           <Button onClick={() => navigate(URL.root, { replace: true })}>Cancel</Button>
-          <Button onClick={() => navigate(URL.game, { replace: true })}>Create</Button>
+          <Button onClick={() => createGame()}>Create</Button>
         </div>
       </div>
     </div>
