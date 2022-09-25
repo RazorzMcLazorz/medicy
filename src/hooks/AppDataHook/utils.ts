@@ -6,11 +6,13 @@ const tileSelector = () => {
   return TILE_INDEX[ran]
 }
 
-export const createInitialMapGen = (mapSize: number): IMap[][] =>
-  new Array(mapSize).fill(
+export const createInitialMapGen = (mapSize: number): IMap[][] => {
+  let baseMapSetup = new Array(mapSize).fill(
     new Array(mapSize).fill(
       {
-        baseTile: tileSelector(),
+        xCoord: 0,
+        yCoord: 0,
+        baseTile: TILE_INDEX[0],
         unit: 0,
         building: 0,
       },
@@ -18,3 +20,12 @@ export const createInitialMapGen = (mapSize: number): IMap[][] =>
     ),
     0
   )
+  return baseMapSetup.map((mapRow: IMap[], xCoord: number) =>
+    mapRow.map((tile: IMap, yCoord: number) => ({
+      ...tile,
+      xCoord,
+      yCoord,
+      baseTile: tileSelector(),
+    }))
+  )
+}

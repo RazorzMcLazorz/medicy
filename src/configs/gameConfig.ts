@@ -2,6 +2,8 @@ import CONFIG, { DIFFICULTY, TIME_LIMIT } from './createGameConfig'
 import { TILE } from './tileConfig'
 
 export interface IMap {
+  xCoord: number
+  yCoord: number
   // This is the default tile before a user builds on the tile it self
   baseTile: TILE
   unit: string
