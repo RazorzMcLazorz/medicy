@@ -1,5 +1,6 @@
 import useAppData from 'hooks/AppDataHook/useAppData'
 import { TILE_IMAGE, TILE_ALT } from 'configs/tileConfig'
+import Tile from './Tile/Tile'
 import './styles.css'
 
 const GameMap = () => {
@@ -12,9 +13,7 @@ const GameMap = () => {
       {game.gameMap.map((mapRow, rowIndex) => (
         <div key={rowIndex + 'MapRow'}>
           {mapRow.map((tile, tileIndex) => (
-            <div key={rowIndex + tileIndex + 'Tile'}>
-              <img src={TILE_IMAGE[tile.baseTile]} alt={TILE_ALT[tile.baseTile]}></img>
-            </div>
+            <Tile tile={tile} key={rowIndex + tileIndex + 'Tile'} />
           ))}
         </div>
       ))}
