@@ -1,5 +1,4 @@
 import useAppData from 'hooks/AppDataHook/useAppData'
-import { TILE_IMAGE, TILE_ALT } from 'configs/tileConfig'
 import Tile from './Tile/Tile'
 import './styles.css'
 
