@@ -45,15 +45,23 @@ const CreateGame = ({ client }: { client: any }) => {
         <div className='createOptions'>
           <div className='createOptionsRow1'>
             <h4>Map Size: {capitalizeFirstLetter(mapSize)}</h4>
-            <div>{MAP_SIZES.map((size) => cgsButton(() => setMapSize(size), size, mapSize))}</div>
+            <div>
+              {MAP_SIZES.map((size) => (
+                <div key={size}>{cgsButton(() => setMapSize(size), size, mapSize)} </div>
+              ))}
+            </div>
             <h4>Difficulty: {capitalizeFirstLetter(difficulty)}</h4>
             <div>
-              {DIFFICULTIES.map((diff) => cgsButton(() => setDifficulty(diff), diff, difficulty))}
+              {DIFFICULTIES.map((diff) => (
+                <div key={diff}>{cgsButton(() => setDifficulty(diff), diff, difficulty)}</div>
+              ))}
             </div>
             <h4>Time Limit: {capitalizeFirstLetter(timeLimit)}</h4>
-            {HAS_TIME_LIMITS.map((hasTimeOption) =>
-              cgsButton(() => setTimeLimit(hasTimeOption), hasTimeOption, timeLimit)
-            )}
+            {HAS_TIME_LIMITS.map((hasTimeOption) => (
+              <div key={hasTimeOption}>
+                {cgsButton(() => setTimeLimit(hasTimeOption), hasTimeOption, timeLimit)}
+              </div>
+            ))}
           </div>
         </div>
         <div className='createSave'>

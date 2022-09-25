@@ -12,7 +12,7 @@ export interface IDefaultGameConfig {
   mapSize: number
   difficulty: DIFFICULTY
   timeLimit: TIME_LIMIT
-  map: IMap[][]
+  gameMap: IMap[][]
 }
 
 export const DEFAULT_GAME_CONFIG: IDefaultGameConfig = {
@@ -20,5 +20,5 @@ export const DEFAULT_GAME_CONFIG: IDefaultGameConfig = {
   difficulty: CONFIG.DEFAULT_DIFFICULTY,
   timeLimit: CONFIG.DEFAULT_HAS_TIME_LIMIT,
   // This is the map the user will use all the time
-  map: [],
+  gameMap: [],
 }

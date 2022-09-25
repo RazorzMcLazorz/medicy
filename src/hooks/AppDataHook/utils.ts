@@ -1,12 +1,12 @@
 import { IMap } from 'configs/gameConfig'
-import { TILE_INDEX } from 'configs/tileConfig'
+import { TILE_INDEX, TILE_COUNT } from 'configs/tileConfig'
 
 const tileSelector = () => {
-  const ran = Math.round(Math.random() * 25)
-  return TILE_INDEX[ran >= 9 ? 0 : ran]
+  const ran = Math.round(Math.random() * TILE_COUNT)
+  return TILE_INDEX[ran]
 }
 
-export const createInitialMapGen = async (mapSize: number): Promise<IMap[][]> =>
+export const createInitialMapGen = (mapSize: number): IMap[][] =>
   new Array(mapSize).fill(
     new Array(mapSize).fill(
       {

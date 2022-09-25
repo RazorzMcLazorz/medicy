@@ -6,12 +6,13 @@ import { createInitialMapGen } from './utils'
 export default function useAppData(): AppDataHook {
   const helpers = useAppDataDispatchHook()
   const state = useAppDataContext()
-  const { setOnlineStatus } = helpers
+  const { game } = state
+  const { setOnlineStatus, setGame } = helpers
 
   const checkOnlineStatus = (): void => setOnlineStatus(window.navigator.onLine)
 
   const handleIntialMapGeneration = (mapSize: number) => {
-    console.log(createInitialMapGen(mapSize))
+    setGame({ ...game, gameMap: createInitialMapGen(mapSize) })
   }
 
   const hookState: AppDataContextState = { ...state }
