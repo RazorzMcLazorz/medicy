@@ -23,11 +23,11 @@ const App = ({ client }: { client: any }) => {
       const account = new Account(client)
 
       account.get().then(
-        function (response) {
+        function (response: { name: any }) {
           console.log(response) // Success
           setUserName(response.name)
         },
-        function (error) {
+        function (error: any) {
           console.log(JSON.stringify(error)) // Failure
         }
       )

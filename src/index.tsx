@@ -11,8 +11,8 @@ const client = new Client()
 
 // Init your Web SDK
 client
-  .setEndpoint('http://localhost/v1') // Your API Endpoint
-  .setProject('62ff1eb4d780e717924d') // Your project ID
+  .setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
+  .setProject('64d81519124245e45b45') // Your project ID
 
 ReactDOM.render(
   <React.StrictMode>
